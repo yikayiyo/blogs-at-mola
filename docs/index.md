@@ -8,5 +8,5 @@ hero:
   actions:
     - theme: brand
       text: 如何使用
-      link: /how-to-use/
+      link: /how-to-use
 ---

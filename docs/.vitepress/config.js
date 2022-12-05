@@ -1,6 +1,5 @@
 function nav() {
   return [
-    { text: "如何使用", link: "/how-to-use" },
     { text: "推荐资源", link: "/recommend/tools" },
     {
       text: "前端",
