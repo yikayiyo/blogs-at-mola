@@ -1,7 +1,7 @@
 {
   "name": "molaware-blogs",
   "version": "1.0.0",
-  "description": "",
+  "description": "blogs during work",
   "main": "index.js",
   "scripts": {
     "docs:dev": "vitepress dev docs",

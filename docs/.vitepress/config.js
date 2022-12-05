@@ -11,21 +11,22 @@ function nav() {
         { text: "JavaScript", link: "/js/" },
         { text: "微信相关", link: "/wechat/" },
       ],
-    }
+    },
   ];
 }
 
 function vueSidebar() {
   return [
-    { 
-      text: "入门", 
+    {
+      text: "入门",
       items: [
         {
           text: "vue3基础",
           link: "/vue/vue3-basic",
         },
-      ]
-    }];
+      ],
+    },
+  ];
 }
 
 function recommendSidebar() {
@@ -55,11 +56,12 @@ function recommendSidebar() {
 }
 
 export default {
-  title: "molaware blogs",
+  lang: 'en-US',
+  title: "Molaware Blogs",
   description: "开心学习。",
   footer: {
     message: "Released under the MIT License.",
-    copyright: "Copyright © 2022-present molaware",
+    copyright: "Copyright © 2022-present Molaware",
   },
   themeConfig: {
     nav: nav(),
