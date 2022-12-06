@@ -6,7 +6,7 @@ function nav() {
       items: [
         { text: "Vue", link: "/vue/vue3-basic" },
         { text: "React", link: "/react/" },
-        { text: "HTML", link: "/html/" },
+        { text: "HTML", link: "/html/accessibility-notes" },
         { text: "CSS", link: "/js/" },
         { text: "JavaScript", link: "/js/" },
         { text: "微信相关", link: "/wechat/" },
