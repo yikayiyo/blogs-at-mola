@@ -107,7 +107,9 @@ the last one.
 
 ### UI 控制
 
-链接文本
+有意义的文本。
+
+确保按钮和链接的文本是可以理解和独特的。
 
 ✅Good
 
@@ -143,6 +145,49 @@ the last one.
 ```html
 Fill in your name: <input type="text" id="name" name="name" />
 ```
+
+### 文本替代
+
+对于多媒体内容，例如图片、音视频元素，可以提供描述文本。
+
+```html
+<img src="dinosaur.png" />
+
+<img
+  src="dinosaur.png"
+  alt="A red Tyrannosaurus Rex: A two legged dinosaur standing upright like a human, with small arms, and a large head with lots of sharp teeth."
+/>
+
+<img
+  src="dinosaur.png"
+  alt="A red Tyrannosaurus Rex: A two legged dinosaur standing upright like a human, with small arms, and a large head with lots of sharp teeth."
+  title="The Mozilla red dinosaur"
+/>
+
+<img src="dinosaur.png" aria-labelledby="dino-label" />
+
+<p id="dino-label">
+  The Mozilla red Tyrannosaurus Rex: A two legged dinosaur standing upright like
+  a human, with small arms, and a large head with lots of sharp teeth.
+</p>
+```
+
+- 第一张图片没有提供文字描述
+- 第二张图片的 `alt` 属性会被屏幕阅读器读到
+- 第三张图片提供了额外的 `title` 属性
+- 第四张图片没有提供 `alt` 属性，但是通过 `aria-labelledby` 属性将页面中已经存在的文本作为图片描述
+
+::: tip
+使用 CSS 来显示只起装饰作用的图像
+:::
+
+## CSS 和 JavaScript 无障碍最佳实践
+
+## ARIA 标签
+
+## 移动端无障碍
+
+## 多媒体无障碍
 
 ## 参考
 
