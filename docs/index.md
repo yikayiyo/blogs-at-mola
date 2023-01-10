@@ -11,5 +11,5 @@ hero:
       link: /how-to-use
     - theme: alt
       text: View on GitHub
-      link: https://github.com/yikayiyo/blogs-in-mola
+      link: https://github.com/yikayiyo/blogs-at-mola
 ---
