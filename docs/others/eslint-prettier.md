@@ -1,5 +1,8 @@
 # Vue 项目引入 Eslint + Prettier
 
+管理后台的代码仓库目前没有开启语法检查，存在一些错误。并且项目由多人开发，不同风格的代码（缩进到底是用2个空格还是用4个空格还是用Tab呢？）掺杂在一起，给项目维护增加了没必要的难度。
+
+本文记录了对项目代码进行语法错误修正的过程，以及制定团队开发规范时推荐使用的插件和配置。
 ## 命令行
 
 ### 安装依赖
@@ -68,7 +71,7 @@ npm run lint:fix
 ```
 
 <figure>
-  <img src="../images/nr-lint.png" alt="">
+  <img src="../images/nr-lint-fix.png" alt="">
   <figcaption>🥲</figcaption>
 </figure>
 
@@ -122,7 +125,7 @@ npm run lint:fix
 
 借助 [dbaeumer.vscode-eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) 和 [esbenp.prettier-vscode](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) 在开发时就能完成代码的语法检查和格式化
 
-将 prettier 设置为代码格式化工具，取消 eslint 的代码格式化功能
+将 [prettier](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) 设置为代码格式化工具，取消 [eslint](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) 的代码格式化功能
 
 插件配置
 
