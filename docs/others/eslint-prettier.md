@@ -1,8 +1,8 @@
 # Vue 项目引入 Eslint + Prettier
 
-管理后台的代码仓库目前没有开启语法检查，存在一些错误。并且项目由多人开发，不同风格的代码（缩进到底是用2个空格还是用4个空格还是用Tab呢？）掺杂在一起，给项目维护增加了没必要的难度。
+管理后台的代码仓库目前没有开启语法检查，存在一些错误。并且项目由多人开发，不同风格的代码（缩进到底是用2个空格还是用4个空格还是用Tab呢？）掺杂在一起，给项目维护增加了没必要的难度
 
-本文记录了对项目代码进行语法错误修正的过程，以及制定团队开发规范时推荐使用的插件和配置。
+本文记录了对项目代码进行语法错误修正的过程，以及制定团队开发规范时推荐使用的插件和配置
 ## 命令行
 
 ### 安装依赖
@@ -13,6 +13,15 @@ npm i -D eslint eslint-plugin-vue prettier eslint-config-prettier
 
 ### 创建、编辑配置文件
 
+删除项目中旧的 `.eslintrc.js` 文件，修改 `.eslintignore` 文件
+
+```
+build/*.js // [!code --]
+config/*.js // [!code --]
+src/assets
+src // [!code --]
+```
+
 ```shell
 touch .eslintrc.js .prettierrc.js
 ```
@@ -22,6 +31,17 @@ touch .eslintrc.js .prettierrc.js
 ```javascript
 // .eslintrc.js example
 module.exports = {
+  root: true,
+  parserOptions: {
+    parser: 'babel-eslint',
+    sourceType: 'module'
+  },
+  env: {
+    browser: true,
+    node: true,
+    es6: true,
+    jquery: true,
+  },
   extends: ['plugin:vue/recommended', 'prettier'],
 }
 
@@ -31,7 +51,9 @@ module.exports = {
   semi: false,
   singleQuote: true,
   singleAttributePerLine: true,
+  trailingComma: 'es5',
 }
+
 ```
 
 ### 创建命令
@@ -117,26 +139,38 @@ npm run lint:fix
   <figcaption style="text-align: center;"><em>属性未定义类型</em></figcaption>
 </figure>
 
-上面的方式适用于处理项目中的旧代码
+最后格式化代码
 
-对于新开发的代码，借助插件可以得到更好的体验
+```shell
+npm run format
+```
+
+上面的方式会处理 `src` 目录下（除了 `src/asset` 外的所有代码，只需要进行一次
+
+对于新开发的代码，可以利用插件进行语法检查和格式化，然后再合并进仓库
 
 ## VSCODE 插件
 
 借助 [dbaeumer.vscode-eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) 和 [esbenp.prettier-vscode](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) 在开发时就能完成代码的语法检查和格式化
 
-将 [prettier](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) 设置为代码格式化工具，取消 [eslint](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) 的代码格式化功能
+- 将 [prettier](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) 设置为默认代码格式化工具
+- 取消 [eslint](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) 的代码格式化功能
+- prettier 插件设置
+  - 配置文件路径设置为 `./.prettierrc.js`
 
 插件配置
 
 ```json
 {
   "editor.codeActionsOnSave": {
-    "source.organizeImports": true,
     "source.fixAll.eslint": true
   },
-  "editor.formatOnSave": true,
-  "eslint.validate": ["javascript", "javascriptreact", "vue"]
+  "editor.formatOnSave": false,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "vue"
+  ],
 }
 ```
 
