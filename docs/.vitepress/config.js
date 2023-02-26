@@ -11,7 +11,7 @@ function nav() {
         { text: 'CSS', link: '/css/index' },
         { text: 'JavaScript', link: '/js/index' },
         { text: '微信相关', link: '/wechat/index' },
-        { text: '其它', link: '/others/eslint-prettier' },
+        { text: '其它', link: '/others/cors' },
       ],
     },
   ];
@@ -89,6 +89,24 @@ function recommendSidebar() {
   ];
 }
 
+function othersSidebar() {
+  return [
+    {
+      text: '',
+      items: [
+        {
+          text: '跨域和CORS',
+          link: '/others/cors',
+        },
+        {
+          text: 'Eslint + Prettier',
+          link: '/others/eslint-prettier',
+        },
+      ],
+    }
+  ];
+}
+
 function newItemsSidebar() {
   return [
     {
@@ -121,6 +139,7 @@ export default {
       '/css/': cssSidebar(),
       '/vue/': vueSidebar(),
       '/recommend/': recommendSidebar(),
+      '/others/': othersSidebar(),
       '/new-items/': newItemsSidebar(),
     },
   },
