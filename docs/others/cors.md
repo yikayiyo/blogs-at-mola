@@ -5,7 +5,7 @@
   <figcaption>当你在浏览器中输入一个url...</figcaption>
 </figure>
 
-请求得到的页面中，可能嵌入了很多 CSS 文件，JavaScript 文件，图片或者 ifame。这些文件有的来自页面所在的服务器，有的来自其它服务器，它们之间可能会有一些互动。如果不对这些互动做些限制，假设其中一个文件被恶意攻击，那么这个文件就有可能暴露用户浏览器中的一切。
+请求得到的页面中，可能嵌入了很多 CSS 文件，JavaScript 文件，图片或者 ifame。这些文件有的来自页面所在的服务器，有的来自其它服务器，它们之间可能会有一些互动。如果不对这些互动做些限制，假设其中一个文件被恶意攻击，那么这个文件就有可能暴露用户浏览器中的一切。因此，浏览器有自己严格的安全策略。
 
 ## 同源策略
 
@@ -25,7 +25,7 @@
 |  `http://store.company.com/dir/inner/another.html`  |  是  |  只有路径不同  |
 |  `https://store.company.com/page.html`  |  不是  |  协议不同  |
 |  `http://store.company.com:81/dir/page.html`  |  不是  |  端口不同  |
-|  `http://news.company.com/dir/other.html`  |  不是  |  主机不同  |
+|  `http://news.company.com/dir/other.html`  |  不是  |  主机名不同  |
 
 对于跨源资源，一般情况下**可以嵌入**，**不可以读取**  
 
@@ -35,16 +35,20 @@
 | CSS | 跨源 CSS 可以使用 `<link>` 元素或 CSS 文件中的 `@import` 来嵌入，可能需要正确的 `Content-Type` 标头 |
 | images | 嵌入跨源图像是允许的。但是，读取跨源图像数据（如使用 JavaScript 检索跨源图像的二进制数据）是被禁止的 |
 | forms | 跨源 URL 可以作为表单元素 `action` 属性的值，网络应用程序可以将表单数据写入一个跨源地址 |
-| multimedia | 跨源的音视频可以通过`<video>`,`<audio>`标签嵌入 |
+| multimedia | 跨源的音视频可以通过 `<video>`, `<audio>` 标签嵌入 |
 | iframes | 跨源嵌入通常是允许的，但不允许跨源读取（如使用 JavaScript 访问 iframe 中的文档） |
 
-如果某些资源希望可以被所有人访问呢？
+如果某些资源不想被同源策略限制，希望可以被所有人访问呢？
+
+CORS 解决了问题。
 
 ## CORS
 
 基于<mark> HTTP 标头（headers)</mark> 的机制
 
 <mark>服务器端</mark>设置<mark>访问控制</mark>相关的 HTTP 标头信息，浏览器利用这些信息决定是否阻止前端 JavaScript 代码的跨域请求
+
+借助该机制，服务器可以指定哪些源的请求可以访问自己的资源。
 
 ### 简单请求
 
