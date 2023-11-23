@@ -1,5 +1,5 @@
 {
-  "name": "molaware-blogs",
+  "name": "blogs-during-work",
   "version": "1.0.0",
   "description": "blogs during work",
   "main": "index.js",
@@ -9,7 +9,7 @@
     "preview": "vitepress preview docs"
   },
   "keywords": [],
-  "author": "",
+  "author": "legao",
   "license": "ISC",
   "devDependencies": {
     "vitepress": "^1.0.0-alpha.29",

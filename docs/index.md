@@ -1,9 +1,9 @@
 ---
 layout: home
-title: Molaware Blogs
+title: Blogs during work
 
 hero:
-  name: Molaware Blogs
+  name: Blogs during work
   text: 工作博客记录
   actions:
     - theme: brand
